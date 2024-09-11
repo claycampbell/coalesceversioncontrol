@@ -1,0 +1,23 @@
+name: customer_dag
+nodes:
+  - name: NEW_DIM_NODE
+    operation:
+      sqlType: Dimension
+      materializationType: table
+      config:
+        preSQL: ""
+        postSQL: ""
+        testsEnabled: true
+        deployEnabled: true
+      metadata:
+        columns:
+          - name: CUSTOMER_ID
+            dataType: VARCHAR
+            isSurrogateKey: true
+          - name: CREATED_AT
+            dataType: TIMESTAMP
+            isSystemCreateDate: true
+          - name: UPDATED_AT
+            dataType: TIMESTAMP
+            isSystemUpdateDate: true
+    description: "DAG node for customer dimension data."
