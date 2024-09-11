@@ -1,86 +1,74 @@
 fileVersion: 1
-id: a123b456-c789-0123-d456-7890e123f456
-name: NEW_DIM_NODE
-operation:
-  config:
-    postSQL: ""
-    preSQL: ""
-    testsEnabled: true
-  database: my_database
-  deployEnabled: true
-  description: "This is a new dimension node for managing customer data."
-  isMultisource: false
-  locationName: ""
-  materializationType: table
-  metadata:
-    appliedNodeTests: []
-    columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1a2b3c4d-567e-8901-234f-567890abcdef
-          stepCounter: a123b456-c789-0123-d456-7890e123f456
-        config: {}
-        dataType: VARCHAR
-        defaultValue: ""
-        description: "Customer ID"
-        isSurrogateKey: true
-        name: CUSTOMER_ID
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 9f8e7d6c-5432-10ab-1cde-2f3b456789ab
-          stepCounter: a123b456-c789-0123-d456-7890e123f456
-        config: {}
-        dataType: TIMESTAMP
-        defaultValue: ""
-        description: "Customer Creation Timestamp"
-        isSystemCreateDate: true
-        name: CREATED_AT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 12345abc-de67-89f0-1234-5678abcd9e0f
-          stepCounter: a123b456-c789-0123-d456-7890e123f456
-        config: {}
-        dataType: TIMESTAMP
-        defaultValue: ""
-        description: "Last Update Timestamp"
-        isSystemUpdateDate: true
-        name: UPDATED_AT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-    cteString: ""
-    enabledColumnTestIDs: []
-    sourceMapping:
-      - aliases: {}
-        customSQL:
-          customSQL: ""
-        dependencies: []
-        join:
-          joinCondition: ""
-        name: CUSTOMER_DIM
-        noLinkRefs: []
-  name: NEW_DIM_NODE
-  overrideSQL: false
-  schema: customer_data
-  sqlType: Dimension
-  type: sql
-  version: 1
-type: Node
+id: Custom_Node_Type
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: CustomNode
+    short: CUS
+    tagColor: '#FF5733'
+    plural: CustomNodes
+
+    config:
+    - groupName: Options
+      items:
+      - type: materializationSelector
+        isRequired: true
+        default: table
+        options:
+        - table
+        - view
+
+      - type: businessKeyColumns
+        isRequired: true
+
+      - type: changeTrackingColumns
+        isRequired: false
+
+      - type: overrideSQLToggle
+        enableIf: "{% if node.materializationType == 'view' %} true {% else %} false {% endif %}"
+
+      - displayName: Enable Tests
+        attributeName: testsEnabled
+        type: toggleButton
+        default: true
+        
+      - displayName: Pre-SQL
+        attributeName: preSQL
+        type: textBox
+        syntax: sql
+        isRequired: false
+
+      - displayName: Post-SQL
+        attributeName: postSQL
+        type: textBox
+        syntax: sql
+        isRequired: false
+
+    systemColumns:
+    - displayName: '{{NODE_NAME}}_ID'
+      transform: ''
+      dataType: NUMBER
+      placement: beginning
+      attributeName: isSurrogateKey
+
+    - displayName: SYSTEM_VERSION
+      transform: ''
+      dataType: NUMBER
+      placement: end
+      attributeName: isSystemVersion
+
+    - displayName: SYSTEM_START_DATE
+      transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      dataType: TIMESTAMP
+      placement: end
+      attributeName: isSystemStartDate
+
+    - displayName: SYSTEM_END_DATE
+      transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      dataType: TIMESTAMP
+      placement: end
+      attributeName: isSystemEndDate
+name: Custom_Node_Type
+type: NodeType
