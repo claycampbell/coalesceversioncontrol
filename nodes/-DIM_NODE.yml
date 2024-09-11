@@ -1,14 +1,14 @@
 fileVersion: 1
-id: Custom_Node_Type
+id: Dimension
 isDisabled: false
 metadata:
   defaultStorageLocation: null
   error: null
   nodeMetadataSpec: |-
-    capitalized: CustomNode
-    short: CUS
-    tagColor: '#FF5733'
-    plural: CustomNodes
+    capitalized: Dimension
+    short: DIM
+    tagColor: '#1E339A'
+    plural: Dimensions
 
     config:
     - groupName: Options
@@ -19,6 +19,9 @@ metadata:
         options:
         - table
         - view
+
+      - type: multisourceToggle
+        enableIf: "{% if node.materializationType == 'table' %} true {% else %} false {% endif %}"
 
       - type: businessKeyColumns
         isRequired: true
@@ -47,7 +50,7 @@ metadata:
         isRequired: false
 
     systemColumns:
-    - displayName: '{{NODE_NAME}}_ID'
+    - displayName: '{{NODE_NAME}}_KEY'
       transform: ''
       dataType: NUMBER
       placement: beginning
@@ -58,6 +61,12 @@ metadata:
       dataType: NUMBER
       placement: end
       attributeName: isSystemVersion
+
+    - displayName: SYSTEM_CURRENT_FLAG
+      transform: ''
+      dataType: VARCHAR
+      placement: end
+      attributeName: isSystemCurrentFlag
 
     - displayName: SYSTEM_START_DATE
       transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
@@ -70,5 +79,17 @@ metadata:
       dataType: TIMESTAMP
       placement: end
       attributeName: isSystemEndDate
-name: Custom_Node_Type
+
+    - displayName: SYSTEM_CREATE_DATE
+      transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      dataType: TIMESTAMP
+      placement: end
+      attributeName: isSystemCreateDate
+
+    - displayName: SYSTEM_UPDATE_DATE
+      transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      dataType: TIMESTAMP
+      placement: end
+      attributeName: isSystemUpdateDate
+name: Dimension
 type: NodeType
