@@ -1,0 +1,12 @@
+name: example_dag
+nodes:
+  - name: node_1
+    type: SQL
+    materialization: table
+    sql: |
+      SELECT * FROM dataset.table
+  - name: node_2
+    type: SQL
+    materialization: view
+    sql: |
+      SELECT column FROM dataset.table
