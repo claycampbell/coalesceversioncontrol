@@ -1,14 +1,14 @@
 fileVersion: 1
-id: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
-name: DIM_NODE
+id: a123b456-c789-0123-d456-7890e123f456
+name: NEW_DIM_NODE
 operation:
   config:
     postSQL: ""
     preSQL: ""
     testsEnabled: true
-  database: ""
+  database: my_database
   deployEnabled: true
-  description: ""
+  description: "This is a new dimension node for managing customer data."
   isMultisource: false
   locationName: ""
   materializationType: table
@@ -20,49 +20,15 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 462b7c92-c142-46d8-8d86-d65c8e2c152e
-          stepCounter: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        isSurrogateKey: true
-        name: DIM_NODE_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: a1e5d406-944c-4c0c-ae16-224eb5969c97
-          stepCounter: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        isSystemVersion: true
-        name: SYSTEM_VERSION
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: cc5f3da9-3acf-41fc-a105-6011a70edee3
-          stepCounter: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
+          columnCounter: 1a2b3c4d-567e-8901-234f-567890abcdef
+          stepCounter: a123b456-c789-0123-d456-7890e123f456
         config: {}
         dataType: VARCHAR
         defaultValue: ""
-        description: ""
-        isSystemCurrentFlag: true
-        name: SYSTEM_CURRENT_FLAG
-        nullable: true
+        description: "Customer ID"
+        isSurrogateKey: true
+        name: CUSTOMER_ID
+        nullable: false
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
@@ -71,48 +37,14 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0bae3216-bc13-4b0d-9da2-4a83d31309e4
-          stepCounter: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
+          columnCounter: 9f8e7d6c-5432-10ab-1cde-2f3b456789ab
+          stepCounter: a123b456-c789-0123-d456-7890e123f456
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
-        description: ""
-        isSystemStartDate: true
-        name: SYSTEM_START_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 08da64d9-01d1-49b8-a1a3-d34b1e836142
-          stepCounter: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
-        config: {}
-        dataType: TIMESTAMP
-        defaultValue: ""
-        description: ""
-        isSystemEndDate: true
-        name: SYSTEM_END_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 0eb9405f-d22c-4516-a959-48ccef5361f1
-          stepCounter: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
-        config: {}
-        dataType: TIMESTAMP
-        defaultValue: ""
-        description: ""
+        description: "Customer Creation Timestamp"
         isSystemCreateDate: true
-        name: SYSTEM_CREATE_DATE
+        name: CREATED_AT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
@@ -122,14 +54,14 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2a75fcfe-9e6b-44c3-9182-7c6afe0dcd4d
-          stepCounter: 77d05743-4fd1-4ae0-bea8-0980a35b38e4
+          columnCounter: 12345abc-de67-89f0-1234-5678abcd9e0f
+          stepCounter: a123b456-c789-0123-d456-7890e123f456
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
-        description: ""
+        description: "Last Update Timestamp"
         isSystemUpdateDate: true
-        name: SYSTEM_UPDATE_DATE
+        name: UPDATED_AT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
@@ -143,11 +75,11 @@ operation:
         dependencies: []
         join:
           joinCondition: ""
-        name: DIM_NODE
+        name: CUSTOMER_DIM
         noLinkRefs: []
-  name: DIM_NODE
+  name: NEW_DIM_NODE
   overrideSQL: false
-  schema: ""
+  schema: customer_data
   sqlType: Dimension
   type: sql
   version: 1
