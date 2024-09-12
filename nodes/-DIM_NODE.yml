@@ -1,86 +1,79 @@
 fileVersion: 1
-id: a123b456-c789-0123-d456-7890e123f456
-name: NEW_DIM_NODE
+id: ec7869a2-5dbb-448c-a349-39ff947b0ada
+name: DIM_NODE_Test_alpha
 operation:
   config:
     postSQL: ""
-    preSQL: ""
-    testsEnabled: true
-  database: my_database
-  deployEnabled: true
-  description: "This is a new dimension node for managing customer data."
-  isMultisource: false
-  locationName: ""
-  materializationType: table
-  metadata:
-    appliedNodeTests: []
-    columns:
-      - acceptedValues:
-          strictMatch: true
+	@@ -20,8 +20,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 1a2b3c4d-567e-8901-234f-567890abcdef
-          stepCounter: a123b456-c789-0123-d456-7890e123f456
+          columnCounter: 2648cedc-287f-456e-b91b-2ee783ef5172
+          stepCounter: ec7869a2-5dbb-448c-a349-39ff947b0ada
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+	@@ -37,8 +37,8 @@ operation:
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd573dc0-de34-4b79-a375-5ffcfc5fd8c2
+          stepCounter: ec7869a2-5dbb-448c-a349-39ff947b0ada
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+	@@ -54,8 +54,8 @@ operation:
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9534ee08-a69f-4624-a7a5-d4955e0fb007
+          stepCounter: ec7869a2-5dbb-448c-a349-39ff947b0ada
         config: {}
         dataType: VARCHAR
         defaultValue: ""
-        description: "Customer ID"
-        isSurrogateKey: true
-        name: CUSTOMER_ID
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-      - acceptedValues:
-          strictMatch: true
+	@@ -71,8 +71,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9f8e7d6c-5432-10ab-1cde-2f3b456789ab
-          stepCounter: a123b456-c789-0123-d456-7890e123f456
+          columnCounter: ca8963ec-a895-438c-8325-2999502807a5
+          stepCounter: ec7869a2-5dbb-448c-a349-39ff947b0ada
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
-        description: "Customer Creation Timestamp"
-        isSystemCreateDate: true
-        name: CREATED_AT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
+	@@ -88,8 +88,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 12345abc-de67-89f0-1234-5678abcd9e0f
-          stepCounter: a123b456-c789-0123-d456-7890e123f456
+          columnCounter: 5fa29410-04f3-45fd-b532-c9913d77d139
+          stepCounter: ec7869a2-5dbb-448c-a349-39ff947b0ada
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
-        description: "Last Update Timestamp"
-        isSystemUpdateDate: true
-        name: UPDATED_AT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-    cteString: ""
-    enabledColumnTestIDs: []
-    sourceMapping:
-      - aliases: {}
-        customSQL:
-          customSQL: ""
+	@@ -105,8 +105,8 @@ operation:
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62418e00-57b4-4f38-a0ad-513258ad081c
+          stepCounter: ec7869a2-5dbb-448c-a349-39ff947b0ada
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+	@@ -122,8 +122,8 @@ operation:
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c74f351f-e34e-4385-96e0-44bfae5a1d33
+          stepCounter: ec7869a2-5dbb-448c-a349-39ff947b0ada
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+	@@ -143,9 +143,9 @@ operation:
         dependencies: []
         join:
           joinCondition: ""
-        name: CUSTOMER_DIM
+        name: DIM_NODE_Test_alpha
         noLinkRefs: []
-  name: NEW_DIM_NODE
+  name: DIM_NODE_Test_alpha
   overrideSQL: false
-  schema: customer_data
+  schema: ""
   sqlType: Dimension
-  type: sql
-  version: 1
-type: Node
